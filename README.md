@@ -46,11 +46,9 @@ Install the following before running the project:
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/24PA1A05A0-JONNADAPREMKUMAR/habit-tracker.git
 cd habit-tracker
 ```
-
-Replace `YOUR_GITHUB_REPOSITORY_URL` with the URL of your repository.
 
 ### 2. Install backend dependencies
 
@@ -126,7 +124,16 @@ Habit endpoints require a valid JWT access token.
 
 ## Deployment
 
-The application can be deployed using a hosting platform such as Render, with MongoDB Atlas as the database. Configure the required environment variables in the hosting platform before deployment.
+## Deployment
+
+**Live Website:** https://habit-tracker-1tt5.onrender.com/
+
+**GitHub Repository:** https://github.com/24PA1A05A0-JONNADAPREMKUMAR/habit-tracker
+
+**Hosting:** Render  
+**Database:** MongoDB Atlas
+
+The application is deployed on Render, with MongoDB Atlas for persistent data storage. Environment variables are configured securely in the hosting platform.
 
 ## Author
 
