@@ -1,3 +1,4 @@
+
 import { useEffect, useMemo, useState } from "react";
 import {
   createHabit,
@@ -22,6 +23,7 @@ function AuthScreen({ onLogin }) {
     password: "",
   });
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (event) => {
@@ -69,20 +71,24 @@ function AuthScreen({ onLogin }) {
 
         <div className="auth-tabs">
           <button
+            type="button"
             className={mode === "login" ? "active" : ""}
             onClick={() => {
               setMode("login");
               setError("");
+              setShowPassword(false);
             }}
           >
             Login
           </button>
 
           <button
+            type="button"
             className={mode === "register" ? "active" : ""}
             onClick={() => {
               setMode("register");
               setError("");
+              setShowPassword(false);
             }}
           >
             Register
@@ -116,22 +122,38 @@ function AuthScreen({ onLogin }) {
             />
           </label>
 
-          <label>
+          <label className="password-label">
             Password
-            <input
-              type="password"
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              placeholder="Minimum 6 characters"
-              minLength="6"
-              required
-            />
+            <div className="password-input-wrapper">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                placeholder="Minimum 6 characters"
+                minLength={6}
+                required
+              />
+
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword((previous) => !previous)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-pressed={showPassword}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
           </label>
 
           {error && <div className="error-message">{error}</div>}
 
-          <button className="primary-button full-width" disabled={loading}>
+          <button
+            type="submit"
+            className="primary-button full-width"
+            disabled={loading}
+          >
             {loading
               ? "Please wait..."
               : mode === "login"

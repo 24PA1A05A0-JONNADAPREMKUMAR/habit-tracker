@@ -576,6 +576,45 @@ button:disabled {
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
 }
 
+/* PASSWORD SHOW / HIDE */
+
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.auth-form .password-input-wrapper input {
+  width: 100%;
+  padding-right: 65px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 5px;
+}
+
+.password-toggle:hover {
+  color: var(--primary-dark);
+  background: #f4f2ff;
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 /* MODAL */
 
 .modal-backdrop {
